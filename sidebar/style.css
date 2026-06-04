@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
