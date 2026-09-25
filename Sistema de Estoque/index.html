@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Sistema de Estoque</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>Sistema de Estoque</h2>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link active" aria-current="page">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="produtos.html" class="nav-link">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="entradas.html" class="nav-link">
+                            Entradas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="saidas.html" class="nav-link">
+                            Saídas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="relatorios.html" class="nav-link">
+                            Relatórios
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- ÁREA PRINCIPAL -->
+
+        <div class="main-container">
+
+            <!-- CABEÇALHO -->
+
+            <header class="topbar">
+
+                <div class="topbar-search">
+                    <label for="search">Pesquisar produtos</label>
+
+                    <input
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder="Pesquisar..."
+                    >
+                </div>
+
+                <div class="topbar-user">
+                    <span>Administrador</span>
+                </div>
+
+            </header>
+
+
+            <!-- CONTEÚDO DO DASHBOARD -->
+
+            <main class="main-content">
+
+                <section class="dashboard">
+
+                    <div class="page-header">
+                        <h1>Dashboard</h1>
+                        <p>Visão geral do seu estoque</p>
+                    </div>
+
+
+                    <!-- INDICADORES -->
+
+                    <section class="indicators" aria-label="Indicadores do estoque">
+
+                        <article class="indicator-card">
+
+                            <h2>Produtos cadastrados</h2>
+
+                            <p id="total-produtos">0</p>
+
+                        </article>
+
+
+                        <article class="indicator-card">
+
+                            <h2>Estoque total</h2>
+
+                            <p id="estoque-total">0</p>
+
+                        </article>
+
+
+                        <article class="indicator-card">
+
+                            <h2>Entradas do mês</h2>
+
+                            <p id="entradas-mes">0</p>
+
+                        </article>
+
+
+                        <article class="indicator-card">
+
+                            <h2>Saídas do mês</h2>
+
+                            <p id="saidas-mes">0</p>
+
+                        </article>
+
+                    </section>
+
+
+                    <!-- PRODUTOS COM ESTOQUE BAIXO -->
+
+                    <section class="low-stock">
+
+                        <div class="section-header">
+
+                            <h2>Produtos com estoque baixo</h2>
+
+                            <a href="produtos.html">
+                                Ver todos
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col">Estoque atual</th>
+                                        <th scope="col">Estoque mínimo</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="low-stock-list">
+
+                                    <tr>
+                                        <td colspan="3">
+                                            Nenhum produto com estoque baixo.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </section>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
