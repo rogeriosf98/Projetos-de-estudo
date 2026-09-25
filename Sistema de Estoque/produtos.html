@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produtos | Sistema de Estoque</title>
+
+    <!-- Estilos compartilhados e específicos desta página -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/produtos.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>Sistema de Estoque</h2>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="produtos.html"
+                           class="nav-link active"
+                           aria-current="page">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="entradas.html" class="nav-link">
+                            Entradas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="saidas.html" class="nav-link">
+                            Saídas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="relatorios.html" class="nav-link">
+                            Relatórios
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="main-container">
+
+            <!-- CABEÇALHO SUPERIOR -->
+            <header class="topbar">
+
+                <div class="topbar-search">
+                    <label for="search">Pesquisar produtos</label>
+
+                    <input
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder="Pesquisar..."
+                    >
+                </div>
+
+                <div class="topbar-user">
+                    <span>Administrador</span>
+                </div>
+
+            </header>
+
+            <!-- CONTEÚDO DA PÁGINA -->
+            <main class="main-content">
+
+                <div class="products-page">
+
+                    <div class="page-header">
+                        <h1>Gerenciamento de Produtos</h1>
+                        <p>Cadastre, consulte e gerencie os produtos do seu estoque.</p>
+                    </div>
+
+                    <!-- CADASTRO -->
+                    <section
+                        class="product-registration"
+                        aria-labelledby="registration-title"
+                    >
+
+                        <div class="section-header">
+                            <h2 id="registration-title">Cadastrar produto</h2>
+                        </div>
+
+                        <form id="form-produto">
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label for="codigo">
+                                        Código do produto
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="codigo"
+                                        name="codigo"
+                                        maxlength="30"
+                                        placeholder="Ex.: PROD-001"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nome">
+                                        Nome do produto
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="nome"
+                                        name="nome"
+                                        maxlength="100"
+                                        placeholder="Digite o nome do produto"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="categoria">
+                                        Categoria
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="categoria"
+                                        name="categoria"
+                                        maxlength="50"
+                                        placeholder="Ex.: Eletrônicos"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="quantidade">
+                                        Quantidade inicial
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="quantidade"
+                                        name="quantidade"
+                                        min="0"
+                                        step="1"
+                                        placeholder="0"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="preco">
+                                        Preço unitário (R$)
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="preco"
+                                        name="preco"
+                                        min="0"
+                                        step="0.01"
+                                        placeholder="0,00"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="estoque-minimo">
+                                        Estoque mínimo
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="estoque-minimo"
+                                        name="estoque-minimo"
+                                        min="0"
+                                        step="1"
+                                        placeholder="0"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+                            <div class="form-actions">
+                                <button
+                                    type="reset"
+                                    class="btn btn-secondary"
+                                >
+                                    Limpar
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >
+                                    Cadastrar produto
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </section>
+
+                    <!-- LISTAGEM -->
+                    <section
+                        class="products-list"
+                        aria-labelledby="products-title"
+                    >
+
+                        <div class="section-header">
+                            <h2 id="products-title">
+                                Produtos cadastrados
+                            </h2>
+
+                            <span
+                                id="products-count"
+                                class="products-count"
+                            >
+                                0 produtos
+                            </span>
+                        </div>
+
+                        <!-- FILTROS -->
+                        <div class="products-filters">
+
+                            <div class="form-group">
+                                <label for="filter-category">
+                                    Categoria
+                                </label>
+
+                                <select
+                                    id="filter-category"
+                                    name="filter-category"
+                                >
+                                    <option value="">
+                                        Todas as categorias
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="filter-stock">
+                                    Situação do estoque
+                                </label>
+
+                                <select
+                                    id="filter-stock"
+                                    name="filter-stock"
+                                >
+                                    <option value="">
+                                        Todos os produtos
+                                    </option>
+
+                                    <option value="disponivel">
+                                        Disponível
+                                    </option>
+
+                                    <option value="baixo">
+                                        Estoque baixo
+                                    </option>
+
+                                    <option value="zerado">
+                                        Sem estoque
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- TABELA DE PRODUTOS -->
+                        <div class="table-container">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Preço</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="products-table-body">
+                                    <tr>
+                                        <td colspan="6" class="empty-message">
+                                            Nenhum produto cadastrado.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+

@@ -7,7 +7,8 @@
 
     <title>Dashboard | Sistema de Estoque</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS compartilhado entre as páginas -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -26,7 +27,11 @@
 
                 <ul>
                     <li>
-                        <a href="index.html" class="nav-link active" aria-current="page">
+                        <a
+                            href="index.html"
+                            class="nav-link active"
+                            aria-current="page"
+                        >
                             Início
                         </a>
                     </li>
@@ -65,12 +70,15 @@
 
         <div class="main-container">
 
-            <!-- CABEÇALHO -->
+            <!-- CABEÇALHO SUPERIOR -->
 
             <header class="topbar">
 
                 <div class="topbar-search">
-                    <label for="search">Pesquisar produtos</label>
+
+                    <label for="search">
+                        Pesquisar produtos
+                    </label>
 
                     <input
                         type="search"
@@ -78,6 +86,7 @@
                         name="search"
                         placeholder="Pesquisar..."
                     >
+
                 </div>
 
                 <div class="topbar-user">
@@ -93,6 +102,8 @@
 
                 <section class="dashboard">
 
+                    <!-- TÍTULO -->
+
                     <div class="page-header">
                         <h1>Dashboard</h1>
                         <p>Visão geral do seu estoque</p>
@@ -101,7 +112,10 @@
 
                     <!-- INDICADORES -->
 
-                    <section class="indicators" aria-label="Indicadores do estoque">
+                    <section
+                        class="indicators"
+                        aria-label="Indicadores do estoque"
+                    >
 
                         <article class="indicator-card">
 
