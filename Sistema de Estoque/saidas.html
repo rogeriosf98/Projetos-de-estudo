@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saídas | Sistema de Estoque</title>
+
+    <!-- Estilos compartilhados e específicos -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/saidas.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>Sistema de Estoque</h2>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="produtos.html" class="nav-link">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="entradas.html" class="nav-link">
+                            Entradas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="saidas.html"
+                           class="nav-link active"
+                           aria-current="page">
+                            Saídas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="relatorios.html" class="nav-link">
+                            Relatórios
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="main-container">
+
+            <!-- CABEÇALHO SUPERIOR -->
+            <header class="topbar">
+
+                <div class="topbar-search">
+                    <label for="search">Pesquisar produtos</label>
+
+                    <input
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder="Pesquisar..."
+                    >
+                </div>
+
+                <div class="topbar-user">
+                    <span>Administrador</span>
+                </div>
+
+            </header>
+
+            <!-- CONTEÚDO DA PÁGINA -->
+            <main class="main-content">
+
+                <div class="exits-page">
+
+                    <!-- TÍTULO -->
+                    <div class="page-header">
+                        <h1>Saídas de Estoque</h1>
+
+                        <p>
+                            Registre a retirada de produtos e consulte
+                            o histórico de saídas.
+                        </p>
+                    </div>
+
+                    <!-- FORMULÁRIO DE SAÍDA -->
+                    <section
+                        class="exit-registration"
+                        aria-labelledby="exit-registration-title"
+                    >
+
+                        <div class="section-header">
+                            <h2 id="exit-registration-title">
+                                Registrar saída
+                            </h2>
+                        </div>
+
+                        <form id="form-saida">
+
+                            <div class="exit-form-grid">
+
+                                <!-- PRODUTO -->
+                                <div class="exit-form-group">
+                                    <label for="produto-saida">
+                                        Produto
+                                    </label>
+
+                                    <select
+                                        id="produto-saida"
+                                        name="produto"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecione um produto
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- QUANTIDADE -->
+                                <div class="exit-form-group">
+                                    <label for="quantidade-saida">
+                                        Quantidade retirada
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="quantidade-saida"
+                                        name="quantidade"
+                                        min="1"
+                                        step="1"
+                                        placeholder="Ex.: 5"
+                                        required
+                                    >
+                                </div>
+
+                                <!-- DATA -->
+                                <div class="exit-form-group">
+                                    <label for="data-saida">
+                                        Data da saída
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="data-saida"
+                                        name="data"
+                                        required
+                                    >
+                                </div>
+
+                                <!-- MOTIVO -->
+                                <div class="exit-form-group">
+                                    <label for="motivo-saida">
+                                        Motivo da saída
+                                    </label>
+
+                                    <select
+                                        id="motivo-saida"
+                                        name="motivo"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecione o motivo
+                                        </option>
+
+                                        <option value="venda">
+                                            Venda
+                                        </option>
+
+                                        <option value="uso-interno">
+                                            Uso interno
+                                        </option>
+
+                                        <option value="perda">
+                                            Perda ou avaria
+                                        </option>
+
+                                        <option value="outro">
+                                            Outro
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <!-- OBSERVAÇÃO -->
+                                <div class="exit-form-group exit-notes">
+                                    <label for="observacao-saida">
+                                        Observação (opcional)
+                                    </label>
+
+                                    <textarea
+                                        id="observacao-saida"
+                                        name="observacao"
+                                        rows="3"
+                                        maxlength="300"
+                                        placeholder="Ex.: Detalhes sobre a retirada"
+                                    ></textarea>
+                                </div>
+
+                            </div>
+
+                            <!-- BOTÕES -->
+                            <div class="exit-form-actions">
+
+                                <button
+                                    type="reset"
+                                    class="exit-btn exit-btn-secondary"
+                                >
+                                    Limpar
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    class="exit-btn exit-btn-primary"
+                                >
+                                    Registrar saída
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </section>
+
+                    <!-- HISTÓRICO DE SAÍDAS -->
+                    <section
+                        class="exits-history"
+                        aria-labelledby="exits-history-title"
+                    >
+
+                        <div class="section-header">
+                            <h2 id="exits-history-title">
+                                Histórico de saídas
+                            </h2>
+
+                            <span
+                                id="exits-count"
+                                class="exits-count"
+                            >
+                                0 registros
+                            </span>
+                        </div>
+
+                        <div class="table-container">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Motivo</th>
+                                        <th scope="col">Observação</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="exits-table-body">
+                                    <tr>
+                                        <td colspan="5">
+                                            Nenhuma saída registrada.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

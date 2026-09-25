@@ -1,0 +1,206 @@
+
+/* =========================================
+   1. ESTRUTURA DA PÁGINA DE SAÍDAS
+========================================= */
+
+.exits-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.exit-registration,
+.exits-history {
+    padding: 24px;
+    margin-bottom: 28px;
+
+    background-color: var(--card-background);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+
+/* =========================================
+   2. FORMULÁRIO DE SAÍDA
+========================================= */
+
+.exit-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.exit-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.exit-form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.exit-form-group input,
+.exit-form-group select,
+.exit-form-group textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+
+    background-color: #ffffff;
+    color: var(--text-primary);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+
+    font: inherit;
+    font-size: 14px;
+}
+
+.exit-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.exit-form-group input::placeholder,
+.exit-form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+.exit-form-group input:focus,
+.exit-form-group select:focus,
+.exit-form-group textarea:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 1px;
+}
+
+/* A observação ocupa as duas colunas do formulário. */
+
+.exit-notes {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   3. BOTÕES DO FORMULÁRIO
+========================================= */
+
+.exit-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+.exit-btn {
+    min-height: 44px;
+    padding: 10px 20px;
+
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.exit-btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.exit-btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.exit-btn-secondary {
+    background-color: #ffffff;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.exit-btn-secondary:hover {
+    background-color: #f1f5f9;
+}
+
+.exit-btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   4. HISTÓRICO DE SAÍDAS
+========================================= */
+
+.exits-count {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.exits-history .table-container table {
+    min-width: 760px;
+}
+
+/* Evita que datas e quantidades sejam quebradas em várias linhas. */
+
+.exits-history .table-container th:first-child,
+.exits-history .table-container td:first-child,
+.exits-history .table-container th:nth-child(3),
+.exits-history .table-container td:nth-child(3) {
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   5. RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .exit-registration,
+    .exits-history {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .exit-form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .exit-notes {
+        grid-column: auto;
+    }
+
+    .exit-form-actions .exit-btn {
+        flex: 1;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .exit-form-actions {
+        flex-direction: column;
+    }
+
+    .exit-form-actions .exit-btn {
+        width: 100%;
+    }
+
+}
