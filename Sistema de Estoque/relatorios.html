@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Relatórios | Sistema de Estoque</title>
+
+    <!-- CSS compartilhado e CSS específico desta página -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/relatorios.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>Sistema de Estoque</h2>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Menu principal">
+                <ul>
+                    <li>
+                        <a href="index.html" class="nav-link">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="produtos.html" class="nav-link">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="entradas.html" class="nav-link">
+                            Entradas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="saidas.html" class="nav-link">
+                            Saídas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="relatorios.html"
+                            class="nav-link active"
+                            aria-current="page"
+                        >
+                            Relatórios
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <div class="main-container">
+
+            <!-- CABEÇALHO SUPERIOR -->
+            <header class="topbar">
+
+                <div class="topbar-search">
+                    <label for="search">Pesquisar produtos</label>
+
+                    <input
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder="Pesquisar..."
+                    >
+                </div>
+
+                <div class="topbar-user">
+                    <span>Administrador</span>
+                </div>
+
+            </header>
+
+            <!-- CONTEÚDO DA PÁGINA -->
+            <main class="main-content">
+
+                <div class="reports-page">
+
+                    <!-- TÍTULO -->
+                    <div class="page-header">
+                        <h1>Relatórios de Estoque</h1>
+
+                        <p>
+                            Acompanhe os indicadores e consulte
+                            as movimentações do estoque.
+                        </p>
+                    </div>
+
+                    <!-- FILTROS -->
+                    <section
+                        class="reports-filters"
+                        aria-labelledby="reports-filters-title"
+                    >
+
+                        <div class="section-header">
+                            <h2 id="reports-filters-title">
+                                Filtrar movimentações
+                            </h2>
+                        </div>
+
+                        <form id="form-filtros-relatorio">
+
+                            <div class="reports-form-grid">
+
+                                <div class="reports-form-group">
+                                    <label for="data-inicial">
+                                        Data inicial
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="data-inicial"
+                                        name="data-inicial"
+                                    >
+                                </div>
+
+                                <div class="reports-form-group">
+                                    <label for="data-final">
+                                        Data final
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="data-final"
+                                        name="data-final"
+                                    >
+                                </div>
+
+                                <div class="reports-form-group">
+                                    <label for="tipo-movimentacao">
+                                        Tipo de movimentação
+                                    </label>
+
+                                    <select
+                                        id="tipo-movimentacao"
+                                        name="tipo-movimentacao"
+                                    >
+                                        <option value="">
+                                            Todas as movimentações
+                                        </option>
+
+                                        <option value="entrada">
+                                            Entradas
+                                        </option>
+
+                                        <option value="saida">
+                                            Saídas
+                                        </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="reports-form-actions">
+
+                                <button
+                                    type="reset"
+                                    class="reports-btn reports-btn-secondary"
+                                >
+                                    Limpar filtros
+                                </button>
+
+                                <button
+                                    type="button"
+                                    id="btn-filtrar-relatorio"
+                                    class="reports-btn reports-btn-primary"
+                                >
+                                    Aplicar filtros
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </section>
+
+                    <!-- INDICADORES -->
+                    <section
+                        class="reports-indicators"
+                        aria-label="Resumo do estoque"
+                    >
+
+                        <article class="report-card">
+                            <h2>Produtos cadastrados</h2>
+                            <p id="relatorio-total-produtos">0</p>
+                        </article>
+
+                        <article class="report-card">
+                            <h2>Unidades em estoque</h2>
+                            <p id="relatorio-estoque-total">0</p>
+                        </article>
+
+                        <article class="report-card">
+                            <h2>Unidades recebidas no período</h2>
+                            <p id="relatorio-total-entradas">0</p>
+                        </article>
+
+                        <article class="report-card">
+                            <h2>Unidades retiradas no período</h2>
+                            <p id="relatorio-total-saidas">0</p>
+                        </article>
+
+                    </section>
+
+                    <!-- HISTÓRICO DE MOVIMENTAÇÕES -->
+                    <section
+                        class="reports-history"
+                        aria-labelledby="reports-history-title"
+                    >
+
+                        <div class="section-header">
+
+                            <h2 id="reports-history-title">
+                                Histórico de movimentações
+                            </h2>
+
+                            <span
+                                id="reports-count"
+                                class="reports-count"
+                            >
+                                0 registros
+                            </span>
+
+                        </div>
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Observação</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="reports-table-body">
+
+                                    <tr>
+                                        <td colspan="5">
+                                            Nenhuma movimentação encontrada.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
