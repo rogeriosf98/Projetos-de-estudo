@@ -195,3 +195,33 @@
     }
 
 }
+
+
+/* =========================================
+   BOTÕES DE AÇÃO DA TABELA
+========================================= */
+
+.products-list .table-container td:last-child {
+    white-space: nowrap;
+}
+
+.products-list .table-container td:last-child .btn {
+    min-height: 34px;
+    padding: 6px 10px;
+    margin: 2px 3px;
+}
+
+.btn-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-danger:hover {
+    background-color: #fecaca;
+}
+
+.btn-danger:focus-visible {
+    outline: 2px solid #b91c1c;
+    outline-offset: 3px;
+}
+
